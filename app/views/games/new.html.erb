@@ -1,0 +1,16 @@
+<h2 class="d-flex justify-content-center m-3">Let's play!</h2>
+<br>
+<div class="container col-8">
+  <div class="letter_generator d-flex justify-content-around mb-5">
+    <% @letters.each do |letter| %>
+      <div class="letter"><%= letter.capitalize %></div>
+    <% end %>
+  </div>
+  <form action="score" class="d-flex justify-content-center col-12 mt-3" >
+      <input type="text" name="word" placeholder="Your longest word here" data-turbo="false" >
+      <input type="submit" class="btn btn-lg btn-floating text-white" style="background-color: #EC4989;" value="✓" >
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters %>
+
+  </form>
+</div>
